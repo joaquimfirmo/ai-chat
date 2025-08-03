@@ -3,7 +3,7 @@ import { chatStream } from './chatStream.mjs';
 
 
 
-async function main() {
+export async function chat() {
     const rl = readline.createInterface({
         input: process.stdin,
         output: process.stdout
@@ -21,8 +21,7 @@ async function main() {
 
             if(!userQuestion.trim()) {
                 console.log("Por favor, digite uma pergunta válida.");
-                askQuestion(); // Pergunta novamente
-                return;
+                askQuestion(); 
             }
 
             try {
@@ -33,8 +32,8 @@ async function main() {
                 console.log(`\n`);
 
                 setTimeout(() => {
-                    askQuestion(); // Pergunta novamente após resposta
-                }, 500); // Espera 500 milissegundos antes de perguntar novamente
+                    askQuestion();
+                }, 500);
             } catch (error) {
                 console.error("❌ Erro no chat:", error);
                 console.log("🔄 Tente novamente com outra pergunta.\n");
@@ -43,28 +42,7 @@ async function main() {
         });
     };
 
-    askQuestion(); // Iniciar o chat
+    askQuestion();
 }
 
-main().catch(console.error);
-
-process.on('SIGINT', async () => {
-    console.log('\n🛑 Interrompido pelo usuário');
-    process.exit(0);
-});
-
-process.on('SIGTERM', async () => {
-    console.log('\n🛑 Processo terminado');
-    process.exit(0);
-});
-
-process.on('uncaughtException', async (error) => {
-    console.error('\n💥 Erro não capturado:', error);
-    process.exit(1);
-});
-
-process.on('unhandledRejection', async (reason, promise) => {
-    console.error('\n💥 Promise rejeitada não tratada:', reason);
-    process.exit(1);
-});
 
