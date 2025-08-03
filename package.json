@@ -1,0 +1,23 @@
+{
+  "name": "ai-chat",
+  "version": "1.0.0",
+  "description": "chatbot com LLMs",
+  "homepage": "https://github.com/joaquimfirmo/ai-chat#readme",
+  "bugs": {
+    "url": "https://github.com/joaquimfirmo/ai-chat/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joaquimfirmo/ai-chat.git"
+  },
+  "license": "ISC",
+  "author": "joaquim firmo",
+  "type": "module",
+  "main": "chat.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.1"
+  }
+}
